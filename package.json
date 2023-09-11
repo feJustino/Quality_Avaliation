@@ -1,0 +1,13 @@
+{
+  "devDependencies": {
+    "concurrently": "^8.2.1",
+    "wait-on": "^7.0.1"
+  },
+  "scripts": {
+    "start-docker": "docker-compose up -d",
+    "wait-for-docker": "wait-on tcp:localhost:3306",
+    "start-script-folder1": "cd ./server && npm run dev",
+    "start-script-folder2": "cd ./app && npm start ",
+    "start-app": "npm run start-docker && npm run wait-for-docker && concurrently \"npm run start-script-folder1\" \"npm run start-script-folder2\""
+  }
+}

@@ -98,7 +98,15 @@ body {
       }
     }
   }
+  .table-action {
+    text-align: center;
 
+    .action {
+
+    margin: 8px;
+
+    }
+  }
   .footer {
     background-color: $primary;
     height: 48px;

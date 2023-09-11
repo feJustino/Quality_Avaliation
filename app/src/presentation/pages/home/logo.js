@@ -1,0 +1,1 @@
+export default "https://static.wixstatic.com/media/f9517a_aaf442e083334f3b99ae2dedbdd10212~mv2.png/v1/crop/x_0,y_92,w_3000,h_646/fill/w_206,h_44,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/LOGO%20QUALITY%20BRANCO%20(2)_edited.png"

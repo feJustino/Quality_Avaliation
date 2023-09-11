@@ -3,6 +3,8 @@ import { z } from 'zod'
 import { makeCreateUserUseCase } from '../../usecases/factories/make-create-user'
 
 export const createUser = async (request: FastifyRequest, reply: FastifyReply): Promise<void> => {
+  void reply.header('Access-Control-Allow-Origin', '*')
+  void reply.header('Access-Control-Allow-Methods', 'POST')
   const createUserBodySchema = z.object({
     Codigo: z.string().max(15),
     Nome: z.string().max(150),
@@ -19,7 +21,6 @@ export const createUser = async (request: FastifyRequest, reply: FastifyReply): 
     LimiteCredito: z.number(),
     Validade: z.coerce.date()
   })
-
   const body = createUserBodySchema.parse(request.body)
   try {
     await makeCreateUserUseCase().execute(body)

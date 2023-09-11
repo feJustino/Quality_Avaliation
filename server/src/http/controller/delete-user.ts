@@ -13,5 +13,5 @@ export const deleteUser = async (request: FastifyRequest, reply: FastifyReply): 
     return await reply.status(500).send()
   }
 
-  return await reply.status(201).send()
+  return await reply.status(200).send()
 }

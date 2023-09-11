@@ -12,7 +12,8 @@ export class AxiosHttpClient implements HttpClient {
         headers: data.headers
       })
     } catch (error) {
-      throw new Error('Erro no response!')
+      console.error(error)
+      throw new Error()
     }
     return {
       statusCode: axiosResponse.status,

@@ -3,5 +3,5 @@ import { AddUser } from "../../../domain/usecases/add-user";
 import { makeApiUrl } from "../http/api-url-factory";
 import { makeAxiosHttpClient } from "../http/axios-http-client-factory";
 
-export const makeRemoteAddAccount = (): AddUser =>
-  new RemoteAddUser(makeApiUrl('/user'), makeAxiosHttpClient())
+export const makeRemoteAddUser = (): AddUser =>
+  new RemoteAddUser(makeApiUrl('/users'), makeAxiosHttpClient())
