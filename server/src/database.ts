@@ -1,13 +1,15 @@
 import 'dotenv/config'
 import { knex as setupKnex, type Knex } from 'knex'
-import { env } from './env'
 
 export const config: Knex.Config = {
-  client: 'sqlite',
+  client: 'mysql',
   connection: {
-    filename: env.DATABASE_URL
+    host: 'localhost',
+    port: 3306,
+    user: 'myuser',
+    password: 'mysecretpassword',
+    database: 'mydatabase'
   },
-  useNullAsDefault: true,
   migrations: {
     extension: 'ts',
     directory: './db/migrations'

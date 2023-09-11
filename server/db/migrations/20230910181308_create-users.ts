@@ -2,8 +2,8 @@ import { type Knex } from 'knex'
 
 export async function up (knex: Knex): Promise<void> {
   await knex.schema.createTable('users', (table) => {
-    table.uuid('ID').notNullable().primary()
-    table.uuid('idUsuario').notNullable().index()
+    table.uuid('ID').notNullable().primary().unique()
+    table.uuid('idUsuario').notNullable().index().unique()
     table.timestamp('DataHoraCadastro').defaultTo(knex.fn.now()).notNullable()
     table.string('Codigo', 15).notNullable()
     table.string('Nome', 150).notNullable()

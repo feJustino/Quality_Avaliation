@@ -1,15 +1,15 @@
 import fastify from 'fastify'
-import { knex } from './database'
-import { env } from './env'
+import { usersRoutes } from './http/routes/users'
 const server = fastify()
 
-server.get('/hello', async () => {
-  const transactions = await knex('transactions').select('*')
-
-  return transactions
+void server.register(usersRoutes, {
+  prefix: '/users'
 })
 
 server
-  .listen({ port: env.PORT })
+  .listen({
+    port: 3333,
+    host: '0.0.0.0'
+  })
   .then(() => { console.log('Running...') })
   .catch(() => { console.log('Error...') })
